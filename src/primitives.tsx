@@ -7,25 +7,27 @@ export const nullViewer = (): ReactNode => <span style={{ color: "#888" }}>null<
 
 export const undefinedViewer = (): ReactNode => <span style={{ color: "#888" }}>undefined</span>;
 
-export const stringViewer = (ctx: RenderContext<string>): ReactNode => (
-  <span>&quot;{ctx.data}&quot;</span>
+export const stringViewer = (ctx: RenderContext): ReactNode => (
+  <span>&quot;{String(ctx.data)}&quot;</span>
 );
 
-export const numberViewer = (ctx: RenderContext<number>): ReactNode => (
-  <span style={{ color: "#06c" }}>{ctx.data}</span>
+export const numberViewer = (ctx: RenderContext): ReactNode => (
+  <span style={{ color: "#06c" }}>{String(ctx.data)}</span>
 );
 
-export const booleanViewer = (ctx: RenderContext<boolean>): ReactNode => (
+export const booleanViewer = (ctx: RenderContext): ReactNode => (
   <span style={{ color: "#909" }}>{String(ctx.data)}</span>
 );
 
-export const dateViewer = (ctx: RenderContext<Date>): ReactNode => (
-  <span>{ctx.data.toISOString()}</span>
+export const dateViewer = (ctx: RenderContext): ReactNode => (
+  <span>{(ctx.data as Date).toISOString()}</span>
 );
 
-export const arrayViewer = (ctx: RenderContext<unknown[]>): ReactNode => {
-  const items = gridLayout(ctx.size, ctx.data.length, 2, 40);
-  const height = items.length > 0 ? items[items.length - 1].pos.y + 40 : 0;
+export const arrayViewer = (ctx: RenderContext): ReactNode => {
+  const data = ctx.data as unknown[];
+  const items = gridLayout(ctx.size, data.length, 2, 40);
+  const lastItem = items[items.length - 1];
+  const height = lastItem ? lastItem.pos.y + 40 : 0;
   return (
     <div style={{ position: "relative", width: ctx.size.width, height }}>
       {items.map(({ pos, size, index }) => (
@@ -39,20 +41,23 @@ export const arrayViewer = (ctx: RenderContext<unknown[]>): ReactNode => {
             height: size.height,
           }}
         >
-          {ctx.render(ctx.data[index], size, `${ctx.path}[${index}]`) as ReactNode}
+          {ctx.render(data[index], size, `${ctx.path}[${index}]`) as ReactNode}
         </div>
       ))}
     </div>
   );
 };
 
-export const objectViewer = (ctx: RenderContext<Record<string, unknown>>): ReactNode => {
-  const entries = Object.entries(ctx.data);
+export const objectViewer = (ctx: RenderContext): ReactNode => {
+  const data = ctx.data as Record<string, unknown>;
+  const entries = Object.entries(data);
   const items = listLayout(ctx.size, entries.length, 30);
   return (
     <div style={{ position: "relative", width: ctx.size.width }}>
       {items.map(({ pos, size, index }) => {
-        const [key, value] = entries[index];
+        const entry = entries[index];
+        if (!entry) return null;
+        const [key, value] = entry;
         return (
           <div
             key={key}

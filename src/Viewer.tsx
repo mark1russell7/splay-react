@@ -1,4 +1,4 @@
-import { memo, useMemo, type ReactNode } from "react";
+import { memo, useMemo, type ReactNode, type NamedExoticComponent } from "react";
 import { inferType, type RenderContext, type Size, type Registry } from "@mark1russell7/splay";
 
 export type ReactRegistry = Registry<ReactNode>;
@@ -10,7 +10,7 @@ export interface ViewerProps {
   registry: ReactRegistry;
 }
 
-export const Viewer = memo(function Viewer({
+export const Viewer: NamedExoticComponent<ViewerProps> = memo(function Viewer({
   data,
   size,
   path = "$",
