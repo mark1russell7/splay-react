@@ -10,4 +10,18 @@ export {
   arrayViewer,
   objectViewer,
 } from "./primitives.js";
-export { createRegistry, TYPE_SYMBOL, type RenderContext, type Size } from "@mark1russell7/splay";
+export {
+  createRegistry,
+  TYPE_SYMBOL,
+  dispatch,
+  resolve,
+  isDynamic,
+  arrayPath,
+  objectPath,
+  pathDepth,
+  type RenderContext,
+  type Size,
+  type ResolveContext,
+  type DynamicValue,
+  type DispatchConfig,
+} from "@mark1russell7/splay";
