@@ -1,47 +1,203 @@
-# ts-base
+# splay-react
 
-TypeScript template with hyper-strict tsconfig composition.
+React adapter for [splay](https://github.com/mark1russell7/splay) recursive data renderer.
 
-## Starting a new project
+**143 lines** - A thin wrapper that brings splay's type-driven rendering to React.
+
+## Installation
 
 ```bash
-# Clone ts-base to a new folder name
-git clone ~/git/ts-base ~/git/my-new-lib
-
-# Initialize with your package name
-cd ~/git/my-new-lib
-npm run init my-new-lib                    # defaults to ESM
-npm run init my-new-lib --config frontend  # for browser/React
-npm run init my-new-lib -c cjs             # for CommonJS
-
-# Then
-npm install
+npm install github:mark1russell7/splay-react#main
 ```
 
-## Scripts
+This automatically installs `@mark1russell7/splay` as a dependency.
 
-| Script | Usage |
-|--------|-------|
-| `npm run init <name> [-c esm\|cjs\|frontend]` | Full setup: sets name, tsconfig, reinits git |
-| `npm run set-name <name>` | Just update package name + URLs |
-| `npm run set-tsconfig <esm\|cjs\|frontend> [path]` | Just change tsconfig |
+## Quick Start
 
-## What `init` does
+```tsx
+import { createRegistry, Viewer, registerPrimitives, TYPE_SYMBOL } from "@mark1russell7/splay-react";
+import type { ReactNode } from "react";
 
-1. Sets `name` to `@mark1russell7/<name>`
-2. Updates `repository`, `bugs`, `homepage` URLs
-3. Sets root tsconfig.json to chosen config
-4. Deletes `.git` and runs `git init` fresh
+// 1. Create a registry
+const registry = createRegistry<ReactNode>();
 
-## tsconfig composition
+// 2. Register built-in viewers (null, string, number, boolean, date, array, object)
+registerPrimitives(registry);
+
+// 3. Render any data
+function App() {
+  const data = {
+    name: "Alice",
+    age: 30,
+    tags: ["developer", "designer"],
+  };
+
+  return (
+    <Viewer
+      data={data}
+      size={{ width: 400, height: 300 }}
+      registry={registry}
+    />
+  );
+}
+```
+
+## Custom Types
+
+Tag data with `TYPE_SYMBOL` to use custom viewers:
+
+```tsx
+import { TYPE_SYMBOL, createRegistry, Viewer, registerPrimitives } from "@mark1russell7/splay-react";
+import type { ReactNode, RenderContext } from "@mark1russell7/splay-react";
+
+const registry = createRegistry<ReactNode>();
+registerPrimitives(registry);
+
+// Register a custom "user" viewer
+registry.register("user", (ctx: RenderContext) => {
+  const user = ctx.data as { name: string; email: string; avatar: string };
+  return (
+    <div className="user-card">
+      <img src={user.avatar} alt={user.name} />
+      <h3>{user.name}</h3>
+      <p>{user.email}</p>
+    </div>
+  );
+});
+
+// Tag data with custom type
+const user = {
+  [TYPE_SYMBOL]: "user",
+  name: "Alice",
+  email: "alice@example.com",
+  avatar: "/avatars/alice.png",
+};
+
+// Viewer will use the "user" viewer
+<Viewer data={user} size={{ width: 300, height: 200 }} registry={registry} />
+```
+
+## Recursive Rendering
+
+Viewers can render nested data using `ctx.render()`:
+
+```tsx
+registry.register("user-list", (ctx: RenderContext) => {
+  const users = ctx.data as Array<{ name: string }>;
+
+  return (
+    <div className="user-list">
+      {users.map((user, i) => (
+        <div key={i} className="user-item">
+          {ctx.render(
+            { ...user, [TYPE_SYMBOL]: "user" },
+            { width: ctx.size.width, height: 60 },
+            \`\${ctx.path}[\${i}]\`
+          ) as ReactNode}
+        </div>
+      ))}
+    </div>
+  );
+});
+```
+
+## Using Layouts
+
+Use splay's layout functions for positioning:
+
+```tsx
+import { gridLayout, type RenderContext } from "@mark1russell7/splay-react";
+
+registry.register("grid", (ctx: RenderContext) => {
+  const items = ctx.data as unknown[];
+  const layout = gridLayout(ctx.size, items.length, 3, 100);
+
+  return (
+    <div style={{ position: "relative", width: ctx.size.width }}>
+      {layout.map(({ pos, size, index }) => (
+        <div key={index} style={{ position: "absolute", left: pos.x, top: pos.y, width: size.width, height: size.height }}>
+          {ctx.render(items[index], size, \`\${ctx.path}[\${index}]\`) as ReactNode}
+        </div>
+      ))}
+    </div>
+  );
+});
+```
+
+## Async Data
+
+Use `resolve()` for async/dynamic values:
+
+```tsx
+import { resolve, isDynamic, type DynamicValue, type Size, type ReactRegistry } from "@mark1russell7/splay-react";
+import { useState, useEffect } from "react";
+
+function AsyncViewer({ data, context, ...props }: {
+  data: DynamicValue<unknown>;
+  context?: Record<string, unknown>;
+  size: Size;
+  registry: ReactRegistry;
+}) {
+  const [resolved, setResolved] = useState<unknown>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (isDynamic(data)) {
+      resolve(data, context).then(setResolved).finally(() => setLoading(false));
+    } else {
+      setResolved(data);
+      setLoading(false);
+    }
+  }, [data, context]);
+
+  if (loading) return <div>Loading...</div>;
+  return <Viewer data={resolved} {...props} />;
+}
+```
+
+## API
+
+### Components
+
+**`<Viewer>`** - The main recursive renderer component.
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `data` | `unknown` | Data to render |
+| `size` | `Size` | Container dimensions `{ width, height }` |
+| `path` | `string?` | Path prefix (default: "$") |
+| `registry` | `ReactRegistry` | Type registry |
+
+### Functions
+
+**`registerPrimitives(registry)`** - Registers viewers for: null, undefined, string, number, boolean, date, array, object
+
+### Re-exports from splay
+
+```typescript
+createRegistry, dispatch, resolve, isDynamic, inferType
+gridLayout, listLayout, splitLayout
+arrayPath, objectPath, pathDepth
+TYPE_SYMBOL
+// Types: Registry, ReactRegistry, RenderContext, Size, Position, etc.
+```
+
+## Architecture
 
 ```
-tsconfig/
-├── shared.json          # Hyper-strict base
-├── esm.json             # nodenext module/resolution
-├── commonjs.json        # commonjs module, node resolution
-├── lib.json             # ${configDir} output paths
-├── esm.lib.json         # ESM + lib combined
-├── commonjs.lib.json    # CJS + lib combined
-└── frontend.json        # DOM/JSX/bundler for browser
+splay-react (143 lines)
+├── Viewer.tsx (23 lines)     - Wraps dispatch() from splay core
+├── primitives.tsx (93 lines) - Built-in viewers for JS types
+└── index.ts (27 lines)       - Re-exports
+
+splay (181 lines) - framework-agnostic core
+├── dispatch()      - recursive algorithm
+├── resolve()       - async resolution
+├── inferType()     - type detection
+├── createRegistry()- factory
+└── layouts         - positioning math
 ```
+
+## License
+
+MIT
