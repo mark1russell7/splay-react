@@ -21,15 +21,13 @@
   "scripts": {
     "build": "tsc -b",
     "typecheck": "tsc --noEmit",
-    "clean": "rm -rf dist .tsbuildinfo",
-    "init": "node scripts/init.js",
-    "set-name": "node scripts/set-name.js",
-    "set-tsconfig": "node scripts/set-tsconfig.js"
+    "clean": "rm -rf dist .tsbuildinfo"
   },
   "sideEffects": false,
   "devDependencies": {
-    "typescript": "^5.9.3",
-    "@types/react": "^19.0.0"
+    "@mark1russell7/ts-base": "github:mark1russell7/ts-base#main",
+    "@types/react": "^19.0.0",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "@mark1russell7/splay": "github:mark1russell7/splay#main"

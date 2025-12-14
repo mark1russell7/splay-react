@@ -1,4 +1,4 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "./tsconfig/frontend.json"
+  "extends": "@mark1russell7/ts-base/tsconfig/frontend.json"
 }
