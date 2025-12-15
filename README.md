@@ -185,17 +185,47 @@ TYPE_SYMBOL
 ## Architecture
 
 ```
-splay-react (143 lines)
-├── Viewer.tsx (23 lines)     - Wraps dispatch() from splay core
-├── primitives.tsx (93 lines) - Built-in viewers for JS types
-└── index.ts (27 lines)       - Re-exports
-
-splay (181 lines) - framework-agnostic core
-├── dispatch()      - recursive algorithm
-├── resolve()       - async resolution
-├── inferType()     - type detection
-├── createRegistry()- factory
-└── layouts         - positioning math
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                              REACT APP                                       │
+│                                                                              │
+│   <Viewer data={user} size={{ width: 400, height: 300 }} registry={reg} /> │
+│                                                                              │
+└───────────────────────────────────────┬─────────────────────────────────────┘
+                                        │
+                                        ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                            splay-react                                       │
+│                                                                              │
+│  ┌───────────────────────────────────────────────────────────────────────┐  │
+│  │                          Viewer.tsx                                    │  │
+│  │  ┌─────────────────────────────────────────────────────────────────┐  │  │
+│  │  │  memo(function Viewer({ data, size, path, registry }) {         │  │  │
+│  │  │    return dispatch(data, size, path, { registry, fallback });   │  │  │
+│  │  │  })                                                              │  │  │
+│  │  └─────────────────────────────────────────────────────────────────┘  │  │
+│  └───────────────────────────────────────────────────────────────────────┘  │
+│                                                                              │
+│  ┌───────────────────────────────────────────────────────────────────────┐  │
+│  │                       primitives.tsx                                   │  │
+│  │                                                                        │  │
+│  │   registerPrimitives(registry) adds viewers for:                      │  │
+│  │   ┌────────┐ ┌────────┐ ┌────────┐ ┌─────────┐ ┌────────┐           │  │
+│  │   │  null  │ │ string │ │ number │ │ boolean │ │  date  │           │  │
+│  │   └────────┘ └────────┘ └────────┘ └─────────┘ └────────┘           │  │
+│  │   ┌────────┐ ┌────────┐                                              │  │
+│  │   │ array  │ │ object │  ← recursive via ctx.render()                │  │
+│  │   └────────┘ └────────┘                                              │  │
+│  └───────────────────────────────────────────────────────────────────────┘  │
+│                                                                              │
+└───────────────────────────────────────┬─────────────────────────────────────┘
+                                        │
+                                        ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         @mark1russell7/splay                                 │
+│                                                                              │
+│   dispatch()  │  inferType()  │  createRegistry()  │  layouts  │  resolve() │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ## License
