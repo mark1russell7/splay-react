@@ -22,10 +22,13 @@
     "url": "https://github.com/mark1russell7/splay-react/issues"
   },
   "homepage": "https://github.com/mark1russell7/splay-react#readme",
+  "dependencies": {
+    "@mark1russell7/splay": "github:mark1russell7/splay#main"
+  },
   "devDependencies": {
     "typescript": "^5.9.3",
     "@types/react": "^19.0.0",
-    "@mark1russell7/cue": "github:mark1russell7/cue##release-1.0.0"
+    "@mark1russell7/cue": "github:mark1russell7/cue#main"
   },
   "types": "./dist/index.d.ts",
   "exports": {
