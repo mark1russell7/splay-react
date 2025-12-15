@@ -1,0 +1,52 @@
+package config
+
+import "mark1russell7.cue/npm/package"
+
+// Project configuration
+// Run: npx cue-config generate
+
+output: package.#PackageJson & {
+	$schema:     "https://json.schemastore.org/package"
+	name:        "@mark1russell7/splay-react"
+	version:     "0.0.0"
+	description: "React adapter for splay recursive data renderer"
+	license:     "MIT"
+	author:      "Mark Russell <marktheprogrammer17@gmail.com>"
+	type:        "module"
+	main:        "./dist/index.js"
+	types:       "./dist/index.d.ts"
+	exports: ".": {
+		types:  "./dist/index.d.ts"
+		import: "./dist/index.js"
+	}
+	files: ["dist", "src"]
+	scripts: {
+		build:     "tsc -b"
+		typecheck: "tsc --noEmit"
+		clean:     "rm -rf dist .tsbuildinfo"
+	}
+	sideEffects: false
+	devDependencies: {
+		"@mark1russell7/cue": "github:mark1russell7/cue#main"
+		"@types/react":       "^19.0.0"
+		typescript:           "^5.9.3"
+	}
+	dependencies: {
+		"@mark1russell7/splay": "github:mark1russell7/splay#main"
+	}
+	peerDependencies: {
+		react: ">=18"
+	}
+	keywords: ["splay", "react", "renderer", "recursive", "data"]
+	repository: {
+		type: "git"
+		url:  "https://github.com/mark1russell7/splay-react.git"
+	}
+	bugs: url:     "https://github.com/mark1russell7/splay-react/issues"
+	homepage:      "https://github.com/mark1russell7/splay-react#readme"
+	publishConfig: access: "public"
+	engines: {
+		node: ">=25.0.0"
+		npm:  ">=11.0.0"
+	}
+}

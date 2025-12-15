@@ -1,12 +1,32 @@
 {
   "$schema": "https://json.schemastore.org/package",
-  "name": "@mark1russell7/splay-react",
-  "version": "0.0.0",
-  "description": "React adapter for splay recursive data renderer",
-  "license": "MIT",
-  "author": "Mark Russell <marktheprogrammer17@gmail.com>",
-  "type": "module",
+  "name": "splay-react",
+  "version": "1.0.0",
+  "description": "React adapter for [splay](https://github.com/mark1russell7/splay) recursive data renderer.",
   "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .tsbuildinfo",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mark1russell7/splay-react.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/mark1russell7/splay-react/issues"
+  },
+  "homepage": "https://github.com/mark1russell7/splay-react#readme",
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "@types/react": "^19.0.0",
+    "@mark1russell7/cue": "github:mark1russell7/cue#main"
+  },
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
@@ -18,37 +38,8 @@
     "dist",
     "src"
   ],
-  "scripts": {
-    "build": "tsc -b",
-    "typecheck": "tsc --noEmit",
-    "clean": "rm -rf dist .tsbuildinfo"
-  },
   "sideEffects": false,
-  "devDependencies": {
-    "@mark1russell7/ts-base": "github:mark1russell7/ts-base#main",
-    "@types/react": "^19.0.0",
-    "typescript": "^5.9.3"
-  },
-  "dependencies": {
-    "@mark1russell7/splay": "github:mark1russell7/splay#main"
-  },
   "peerDependencies": {
     "react": ">=18"
-  },
-  "keywords": [],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mark1russell7/splay-react.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mark1russell7/splay-react/issues"
-  },
-  "homepage": "https://github.com/mark1russell7/splay-react#readme",
-  "publishConfig": {
-    "access": "public"
-  },
-  "engines": {
-    "node": ">=25.0.0",
-    "npm": ">=11.0.0"
   }
 }
