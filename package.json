@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package",
-  "name": "splay-react",
+  "name": "@mark1russell7/splay-react",
   "version": "1.0.0",
   "description": "React adapter for [splay](https://github.com/mark1russell7/splay) recursive data renderer.",
   "main": "./dist/index.js",
@@ -28,7 +28,8 @@
   "devDependencies": {
     "typescript": "^5.9.3",
     "@types/react": "^19.0.0",
-    "@mark1russell7/cue": "github:mark1russell7/cue#main"
+    "@mark1russell7/cue": "github:mark1russell7/cue#main",
+    "vite": "^6.0.0"
   },
   "types": "./dist/index.d.ts",
   "exports": {
@@ -44,5 +45,11 @@
   "sideEffects": false,
   "peerDependencies": {
     "react": ">=18"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@mark1russell7/cue",
+      "@mark1russell7/splay"
+    ]
   }
 }
