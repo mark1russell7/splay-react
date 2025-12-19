@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@mark1russell7/splay':
         specifier: github:mark1russell7/splay#main
-        version: https://codeload.github.com/mark1russell7/splay/tar.gz/e65f01388a75b7d974d8fddf4441da9bf51c46b4
+        version: https://codeload.github.com/mark1russell7/splay/tar.gz/687277b62c69020a90ed3b5a66b9b3ddcbb0e093
       react:
         specifier: '>=18'
         version: 19.2.3
@@ -192,8 +192,8 @@ packages:
     engines: {node: '>=25.0.0', npm: '>=11.0.0'}
     hasBin: true
 
-  '@mark1russell7/splay@https://codeload.github.com/mark1russell7/splay/tar.gz/e65f01388a75b7d974d8fddf4441da9bf51c46b4':
-    resolution: {tarball: https://codeload.github.com/mark1russell7/splay/tar.gz/e65f01388a75b7d974d8fddf4441da9bf51c46b4}
+  '@mark1russell7/splay@https://codeload.github.com/mark1russell7/splay/tar.gz/687277b62c69020a90ed3b5a66b9b3ddcbb0e093':
+    resolution: {tarball: https://codeload.github.com/mark1russell7/splay/tar.gz/687277b62c69020a90ed3b5a66b9b3ddcbb0e093}
     version: 0.0.0
     engines: {node: '>=25.0.0', npm: '>=11.0.0'}
 
@@ -495,7 +495,7 @@ snapshots:
 
   '@mark1russell7/cue@https://codeload.github.com/mark1russell7/cue/tar.gz/61c8ea18d0663b752f50caec236926d57646405f': {}
 
-  '@mark1russell7/splay@https://codeload.github.com/mark1russell7/splay/tar.gz/e65f01388a75b7d974d8fddf4441da9bf51c46b4': {}
+  '@mark1russell7/splay@https://codeload.github.com/mark1russell7/splay/tar.gz/687277b62c69020a90ed3b5a66b9b3ddcbb0e093': {}
 
   '@rollup/rollup-android-arm-eabi@4.53.5':
     optional: true
