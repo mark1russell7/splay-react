@@ -10,14 +10,14 @@ importers:
     dependencies:
       '@mark1russell7/splay':
         specifier: github:mark1russell7/splay#main
-        version: https://codeload.github.com/mark1russell7/splay/tar.gz/5a54c07cd9f3f2451abdb5aafebe89159daab861
+        version: https://codeload.github.com/mark1russell7/splay/tar.gz/7870c7786833d8661275ce5b93227cb86a4126d2
       react:
         specifier: '>=18'
         version: 19.2.3
     devDependencies:
       '@mark1russell7/cue':
         specifier: github:mark1russell7/cue#main
-        version: https://codeload.github.com/mark1russell7/cue/tar.gz/a98f684936a3f20cd01326c5d47838d6739241b7
+        version: https://codeload.github.com/mark1russell7/cue/tar.gz/c5fc7aa096c00461fde1db42a88d6df2e7db2dca
       '@types/react':
         specifier: ^19.0.0
         version: 19.2.7
@@ -186,14 +186,14 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@mark1russell7/cue@https://codeload.github.com/mark1russell7/cue/tar.gz/a98f684936a3f20cd01326c5d47838d6739241b7':
-    resolution: {tarball: https://codeload.github.com/mark1russell7/cue/tar.gz/a98f684936a3f20cd01326c5d47838d6739241b7}
+  '@mark1russell7/cue@https://codeload.github.com/mark1russell7/cue/tar.gz/c5fc7aa096c00461fde1db42a88d6df2e7db2dca':
+    resolution: {tarball: https://codeload.github.com/mark1russell7/cue/tar.gz/c5fc7aa096c00461fde1db42a88d6df2e7db2dca}
     version: 1.0.0
     engines: {node: '>=25.0.0', npm: '>=11.0.0'}
     hasBin: true
 
-  '@mark1russell7/splay@https://codeload.github.com/mark1russell7/splay/tar.gz/5a54c07cd9f3f2451abdb5aafebe89159daab861':
-    resolution: {tarball: https://codeload.github.com/mark1russell7/splay/tar.gz/5a54c07cd9f3f2451abdb5aafebe89159daab861}
+  '@mark1russell7/splay@https://codeload.github.com/mark1russell7/splay/tar.gz/7870c7786833d8661275ce5b93227cb86a4126d2':
+    resolution: {tarball: https://codeload.github.com/mark1russell7/splay/tar.gz/7870c7786833d8661275ce5b93227cb86a4126d2}
     version: 0.0.0
     engines: {node: '>=25.0.0', npm: '>=11.0.0'}
 
@@ -493,9 +493,9 @@ snapshots:
   '@esbuild/win32-x64@0.25.12':
     optional: true
 
-  '@mark1russell7/cue@https://codeload.github.com/mark1russell7/cue/tar.gz/a98f684936a3f20cd01326c5d47838d6739241b7': {}
+  '@mark1russell7/cue@https://codeload.github.com/mark1russell7/cue/tar.gz/c5fc7aa096c00461fde1db42a88d6df2e7db2dca': {}
 
-  '@mark1russell7/splay@https://codeload.github.com/mark1russell7/splay/tar.gz/5a54c07cd9f3f2451abdb5aafebe89159daab861': {}
+  '@mark1russell7/splay@https://codeload.github.com/mark1russell7/splay/tar.gz/7870c7786833d8661275ce5b93227cb86a4126d2': {}
 
   '@rollup/rollup-android-arm-eabi@4.54.0':
     optional: true
