@@ -28,8 +28,8 @@
     "@mark1russell7/splay": "^0.2.0"
   },
   "devDependencies": {
-    "@mark1russell7/api-report": "^0.1.0",
-    "@mark1russell7/conventions": "^0.1.0",
+    "@mark1russell7/api-report": "^0.2.0",
+    "@mark1russell7/conventions": "^0.2.0",
     "@mark1russell7/cue": "^1.0.2",
     "@types/react": "^19.0.0",
     "typescript": "^5.9.3",
@@ -55,12 +55,6 @@
   },
   "conventions": {
     "rules": {
-      "required-scripts": {
-        "scripts": [
-          "typecheck"
-        ],
-        "reason": "splay-react never adopted the STE prose standard (ste-lint): its README is not STE, and no rule document of this repository asks for it. The rule still examines typecheck."
-      },
       "no-build-output": {
         "ignore": [
           "dist/**"
