@@ -55,12 +55,6 @@
   },
   "conventions": {
     "rules": {
-      "required-scripts": {
-        "scripts": [
-          "typecheck"
-        ],
-        "reason": "splay-react never adopted the STE prose standard (ste-lint): its README is not STE, and no rule document of this repository asks for it. The rule still examines typecheck."
-      },
       "no-build-output": {
         "ignore": [
           "dist/**"
