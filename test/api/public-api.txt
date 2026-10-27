@@ -1,0 +1,177 @@
+# The public API of @mark1russell7/splay-react
+#
+# The names of each entry of the exports field, and the declaration of each name, without comments
+# and private members. The command `api-report check` compares this file with the built .d.ts files.
+# To accept a change of the API, start the build, then `api-report update`, and review the diff.
+
+## . (dist/index.d.ts): 62 names
+
+ArrayHydration: dist/hydrate.d.ts#ArrayHydration
+BooleanHydration: dist/hydrate.d.ts#BooleanHydration
+type ComponentFactory: @mark1russell7/splay#ComponentFactory (external)
+type ComponentOutput: @mark1russell7/splay#ComponentOutput (external)
+type ComponentRegistry: dist/Viewer.d.ts#ComponentRegistry
+DateHydration: dist/hydrate.d.ts#DateHydration
+type DispatchConfig: @mark1russell7/splay#DispatchConfig (external)
+type DynamicValue: @mark1russell7/splay#DynamicValue (external)
+type HydrationComponent: dist/hydrate.d.ts#HydrationComponent
+type HydrationMap: dist/hydrate.d.ts#HydrationMap
+type HydrationProps: dist/hydrate.d.ts#HydrationProps
+KeyValueHydration: dist/hydrate.d.ts#KeyValueHydration
+NullHydration: dist/hydrate.d.ts#NullHydration
+NumberHydration: dist/hydrate.d.ts#NumberHydration
+ObjectHydration: dist/hydrate.d.ts#ObjectHydration
+type Position: @mark1russell7/splay#Position (external)
+type ReactRegistry: dist/Viewer.d.ts#ReactRegistry
+type Registry: @mark1russell7/splay#Registry (external)
+type RenderContext: @mark1russell7/splay#RenderContext (external)
+type ResolveContext: @mark1russell7/splay#ResolveContext (external)
+type Size: @mark1russell7/splay#Size (external)
+StringHydration: dist/hydrate.d.ts#StringHydration
+TYPE_SYMBOL: @mark1russell7/splay#TYPE_SYMBOL (external)
+UndefinedHydration: dist/hydrate.d.ts#UndefinedHydration
+Viewer: dist/Viewer.d.ts#Viewer
+type ViewerProps: dist/Viewer.d.ts#ViewerProps
+arrayComponent: dist/components.d.ts#arrayComponent
+arrayPath: @mark1russell7/splay#arrayPath (external)
+arrayViewer: dist/components.d.ts#arrayComponent
+booleanComponent: dist/components.d.ts#booleanComponent
+booleanViewer: dist/components.d.ts#booleanComponent
+createDefaultRegistry: dist/Viewer.d.ts#createDefaultRegistry
+createHydrate: dist/hydrate.d.ts#createHydrate
+createRegistry: @mark1russell7/splay#createRegistry (external)
+dateComponent: dist/components.d.ts#dateComponent
+dateViewer: dist/components.d.ts#dateComponent
+defaultHydrationMap: dist/hydrate.d.ts#defaultHydrationMap
+dispatch: @mark1russell7/splay#dispatch (external)
+extendHydrationMap: dist/hydrate.d.ts#extendHydrationMap
+gridLayout: @mark1russell7/splay#gridLayout (external)
+hydrate: dist/hydrate.d.ts#hydrate
+inferType: @mark1russell7/splay#inferType (external)
+isDynamic: @mark1russell7/splay#isDynamic (external)
+listLayout: @mark1russell7/splay#listLayout (external)
+nullComponent: dist/components.d.ts#nullComponent
+nullViewer: dist/components.d.ts#nullComponent
+numberComponent: dist/components.d.ts#numberComponent
+numberViewer: dist/components.d.ts#numberComponent
+objectComponent: dist/components.d.ts#objectComponent
+objectPath: @mark1russell7/splay#objectPath (external)
+objectViewer: dist/components.d.ts#objectComponent
+pathDepth: @mark1russell7/splay#pathDepth (external)
+primitiveComponents: dist/components.d.ts#primitiveComponents
+registerComponents: dist/components.d.ts#registerComponents
+registerPrimitives: dist/components.d.ts#registerComponents
+render: dist/Viewer.d.ts#render
+resolve: @mark1russell7/splay#resolve (external)
+splitLayout: @mark1russell7/splay#splitLayout (external)
+stringComponent: dist/components.d.ts#stringComponent
+stringViewer: dist/components.d.ts#stringComponent
+undefinedComponent: dist/components.d.ts#undefinedComponent
+undefinedViewer: dist/components.d.ts#undefinedComponent
+
+## Declarations
+
+### dist/Viewer.d.ts#ComponentRegistry
+export type ComponentRegistry = Registry<ComponentOutput>;
+
+### dist/Viewer.d.ts#ReactRegistry
+export type ReactRegistry = Registry<ReactNode>;
+
+### dist/Viewer.d.ts#Viewer
+export declare const Viewer: NamedExoticComponent<ViewerProps>;
+
+### dist/Viewer.d.ts#ViewerProps
+export interface ViewerProps {
+    data: unknown;
+    size: Size;
+    path?: string;
+    registry?: ComponentRegistry;
+    hydrationMap?: HydrationMap;
+}
+
+### dist/Viewer.d.ts#createDefaultRegistry
+export declare function createDefaultRegistry(): ComponentRegistry;
+
+### dist/Viewer.d.ts#render
+export declare function render(data: unknown, size: Size, path?: string, registry?: ComponentRegistry): ComponentOutput | undefined;
+
+### dist/components.d.ts#arrayComponent
+export declare const arrayComponent: (ctx: RenderContext) => ComponentOutput;
+
+### dist/components.d.ts#booleanComponent
+export declare const booleanComponent: (ctx: RenderContext) => ComponentOutput;
+
+### dist/components.d.ts#dateComponent
+export declare const dateComponent: (ctx: RenderContext) => ComponentOutput;
+
+### dist/components.d.ts#nullComponent
+export declare const nullComponent: (_ctx: RenderContext) => ComponentOutput;
+
+### dist/components.d.ts#numberComponent
+export declare const numberComponent: (ctx: RenderContext) => ComponentOutput;
+
+### dist/components.d.ts#objectComponent
+export declare const objectComponent: (ctx: RenderContext) => ComponentOutput;
+
+### dist/components.d.ts#primitiveComponents
+export declare const primitiveComponents: Record<string, (ctx: RenderContext) => ComponentOutput>;
+
+### dist/components.d.ts#registerComponents
+export declare function registerComponents(registry: Registry<ComponentOutput>): void;
+
+### dist/components.d.ts#stringComponent
+export declare const stringComponent: (ctx: RenderContext) => ComponentOutput;
+
+### dist/components.d.ts#undefinedComponent
+export declare const undefinedComponent: (_ctx: RenderContext) => ComponentOutput;
+
+### dist/hydrate.d.ts#ArrayHydration
+export declare const ArrayHydration: ({ output, children }: HydrationProps) => ReactNode;
+
+### dist/hydrate.d.ts#BooleanHydration
+export declare const BooleanHydration: ({ output }: HydrationProps) => ReactNode;
+
+### dist/hydrate.d.ts#DateHydration
+export declare const DateHydration: ({ output }: HydrationProps) => ReactNode;
+
+### dist/hydrate.d.ts#HydrationComponent
+export type HydrationComponent = ComponentType<HydrationProps>;
+
+### dist/hydrate.d.ts#HydrationMap
+export type HydrationMap = Record<string, HydrationComponent>;
+
+### dist/hydrate.d.ts#HydrationProps
+export interface HydrationProps {
+    output: ComponentOutput;
+    children?: ReactNode[];
+}
+
+### dist/hydrate.d.ts#KeyValueHydration
+export declare const KeyValueHydration: ({ output, children }: HydrationProps) => ReactNode;
+
+### dist/hydrate.d.ts#NullHydration
+export declare const NullHydration: (_props: HydrationProps) => ReactNode;
+
+### dist/hydrate.d.ts#NumberHydration
+export declare const NumberHydration: ({ output }: HydrationProps) => ReactNode;
+
+### dist/hydrate.d.ts#ObjectHydration
+export declare const ObjectHydration: ({ output, children }: HydrationProps) => ReactNode;
+
+### dist/hydrate.d.ts#StringHydration
+export declare const StringHydration: ({ output }: HydrationProps) => ReactNode;
+
+### dist/hydrate.d.ts#UndefinedHydration
+export declare const UndefinedHydration: (_props: HydrationProps) => ReactNode;
+
+### dist/hydrate.d.ts#createHydrate
+export declare function createHydrate(components?: HydrationMap, fallback?: HydrationComponent): (output: ComponentOutput) => ReactNode;
+
+### dist/hydrate.d.ts#defaultHydrationMap
+export declare const defaultHydrationMap: HydrationMap;
+
+### dist/hydrate.d.ts#extendHydrationMap
+export declare function extendHydrationMap(custom: HydrationMap): HydrationMap;
+
+### dist/hydrate.d.ts#hydrate
+export declare const hydrate: (output: ComponentOutput) => ReactNode;

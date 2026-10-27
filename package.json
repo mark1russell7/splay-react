@@ -7,7 +7,9 @@
   "scripts": {
     "build": "tsc -b",
     "typecheck": "tsc --noEmit",
-    "clean": "rm -rf dist .tsbuildinfo"
+    "clean": "rm -rf dist .tsbuildinfo",
+    "check:conventions": "conventions check",
+    "check:api": "api-report check"
   },
   "repository": {
     "type": "git",
@@ -26,9 +28,11 @@
     "@mark1russell7/splay": "^0.2.0"
   },
   "devDependencies": {
-    "typescript": "^5.9.3",
-    "@types/react": "^19.0.0",
+    "@mark1russell7/api-report": "^0.1.0",
+    "@mark1russell7/conventions": "^0.1.0",
     "@mark1russell7/cue": "^1.0.2",
+    "@types/react": "^19.0.0",
+    "typescript": "^5.9.3",
     "vite": "^6.0.0"
   },
   "types": "./dist/index.d.ts",
@@ -48,5 +52,21 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "conventions": {
+    "rules": {
+      "required-scripts": {
+        "scripts": [
+          "typecheck"
+        ],
+        "reason": "splay-react never adopted the STE prose standard (ste-lint): its README is not STE, and no rule document of this repository asks for it. The rule still examines typecheck."
+      },
+      "no-build-output": {
+        "ignore": [
+          "dist/**"
+        ],
+        "reason": "The README tells a git install (github:mark1russell7/splay-react#main), and MiniMongo installs it that way. The package has no prepare script, so a git install needs dist/. Remove this exception when MiniMongo uses the npm version."
+      }
+    }
   }
 }
