@@ -161,13 +161,13 @@ graph TD
 ## Installation
 
 ```bash
-npm install github:mark1russell7/splay-react#main
+npm install @mark1russell7/splay-react
 ```
 
 Or with pnpm:
 
 ```bash
-pnpm add github:mark1russell7/splay-react#main
+pnpm add @mark1russell7/splay-react
 ```
 
 This automatically installs `@mark1russell7/splay` as a dependency.
@@ -883,7 +883,7 @@ const data = {
 
 ### Production
 
-- `@mark1russell7/splay` (github:mark1russell7/splay#main) - Core rendering engine
+- `@mark1russell7/splay` - Core rendering engine
 
 ### Peer Dependencies
 
