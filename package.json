@@ -3,7 +3,7 @@
   "name": "@mark1russell7/splay-react",
   "version": "1.0.0",
   "description": "React adapter for [splay](https://github.com/mark1russell7/splay) recursive data renderer.",
-  "main": "./dist/index.js",
+  "main": "./src/index.ts",
   "scripts": {
     "build": "tsc -b",
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json",
@@ -35,31 +35,28 @@
     "typescript": "^5.9.3",
     "vite": "^6.0.0"
   },
-  "types": "./dist/index.d.ts",
+  "types": "./src/index.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
     }
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "sideEffects": false,
   "peerDependencies": {
     "react": ">=18"
   },
   "publishConfig": {
-    "access": "public"
-  },
-  "conventions": {
-    "rules": {
-      "no-build-output": {
-        "ignore": [
-          "dist/**"
-        ],
-        "reason": "The README tells a git install (github:mark1russell7/splay-react#main), and MiniMongo installs it that way. The package has no prepare script, so a git install needs dist/. Remove this exception when MiniMongo uses the npm version."
+    "access": "public",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js"
       }
     }
   }
