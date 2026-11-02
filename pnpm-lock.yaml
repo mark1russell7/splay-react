@@ -175,13 +175,13 @@ importers:
     devDependencies:
       '@mark1russell7/api-report':
         specifier: ^0.2.0
-        version: 0.2.0
+        version: 0.2.1
       '@mark1russell7/conventions':
-        specifier: ^0.3.0
-        version: 0.3.1
+        specifier: ^0.12.2
+        version: 0.12.2
       '@mark1russell7/cue':
         specifier: ^1.0.2
-        version: 1.0.2
+        version: 1.1.0
       '@types/react':
         specifier: ^19.0.0
         version: 19.2.7
@@ -350,18 +350,18 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@mark1russell7/api-report@0.2.0':
-    resolution: {integrity: sha512-09QIGN/YGpbIgovGQ3uzPCWFwDazOBq8s7qhfi/FU2mo1c0M/iaF9EE+1psdZxN4o9Y1U4oU7zkGYLsfCvvMMg==}
+  '@mark1russell7/api-report@0.2.1':
+    resolution: {integrity: sha512-3bP316h+Thc6m4W2yvame5wTvDIMp7JDCM5CQBvDWZtjfsgr02Z7Vii9YjuPvogvkWvA4t09ihhnr73h0IKkRQ==}
     engines: {node: '>=22'}
     hasBin: true
 
-  '@mark1russell7/conventions@0.3.1':
-    resolution: {integrity: sha512-cCIEsF+G1JVvpA4Mrj3DO//dMMRTYlK89hVPR5hm9IPmMYKZRo1tdVdaia0uT6b7eGrXr3OU8YmMnsQ2UR8O2g==}
+  '@mark1russell7/conventions@0.12.2':
+    resolution: {integrity: sha512-y1IrZG8yZwDTYbbnwcdR4o1IIsu31HIST2ouvd6D15FPk5lOIJVubgLzOLmjTVLlXF+IG5E0Dyeu2jtIu+72nw==}
     engines: {node: '>=22'}
     hasBin: true
 
-  '@mark1russell7/cue@1.0.2':
-    resolution: {integrity: sha512-ketUJQeJ4eLSmw0X3NpWrGHxXVg30MpMfw/wYdzlpwf7J94BQmmOM80VuGL4OPC4tXczmTj5LWxNdM7NoQKgeA==}
+  '@mark1russell7/cue@1.1.0':
+    resolution: {integrity: sha512-R9pjuWNFqd/LSfOI8uY7w8E2Dri8UQFGLodBuV4d2E0pwzWM5ISVXWVhC7+aYgrR1GXSMzbyo5ZLWvqyQCwdIg==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -665,11 +665,11 @@ snapshots:
   '@esbuild/win32-x64@0.25.12':
     optional: true
 
-  '@mark1russell7/api-report@0.2.0': {}
+  '@mark1russell7/api-report@0.2.1': {}
 
-  '@mark1russell7/conventions@0.3.1': {}
+  '@mark1russell7/conventions@0.12.2': {}
 
-  '@mark1russell7/cue@1.0.2': {}
+  '@mark1russell7/cue@1.1.0': {}
 
   '@mark1russell7/splay@0.2.0': {}
 
