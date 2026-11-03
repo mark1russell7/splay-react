@@ -1,5 +1,7 @@
 # Splay React
 
+**Live demo:** [mark1russell7.github.io/splay-react](https://mark1russell7.github.io/splay-react/). Edit data or change a viewer, and the ComponentOutput and the React elements change live.
+
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-19-61dafb.svg)](https://reactjs.org/)
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
