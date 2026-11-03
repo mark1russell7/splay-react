@@ -40,8 +40,9 @@ jobs:
       out: site/dist
       env: '{"SITE_BASE": "/${{ github.event.repository.name }}"}'
       # The site-pages action adds releases/, status/, data/releases.json and data/status.json to the built site.
-      # The repository has no docs/ROADMAP.md, so the Status page shows the open pull requests and issues.
+      # The Status page shows the items of docs/ROADMAP.md, and the open pull requests and issues.
       site-pages: true
+      roadmap: docs/ROADMAP.md
       packages: "@mark1russell7/splay-react"
       site-name: splay-react
       # The site check: a browser opens each page at 360, 400 and 1280 px, in light and dark, before the deploy.
