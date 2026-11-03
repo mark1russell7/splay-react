@@ -178,7 +178,7 @@ importers:
         version: 0.2.2
       '@mark1russell7/conventions':
         specifier: ^0.24.0
-        version: 0.24.0
+        version: 0.24.1
       '@mark1russell7/cue':
         specifier: ^2.0.0
         version: 2.0.0
@@ -405,8 +405,8 @@ packages:
     engines: {node: '>=22'}
     hasBin: true
 
-  '@mark1russell7/conventions@0.24.0':
-    resolution: {integrity: sha512-odYM5KJ0ADqPoY+G02j4UMBqYK+X3cZhpYbV71hyLrI6QOo0U6uTgniyECxY5qzR/8GowD/awhE4M7g7c17c5w==}
+  '@mark1russell7/conventions@0.24.1':
+    resolution: {integrity: sha512-4FATOd/MOOMHFBZtrRP+ZFeEUHwgannQD9FjWH81wVT6TbMJVNbFNH/uXSb3cP+0f+jM/xV9tT6jZ4ZOPfrMEg==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -1120,7 +1120,7 @@ snapshots:
 
   '@mark1russell7/api-report@0.2.2': {}
 
-  '@mark1russell7/conventions@0.24.0': {}
+  '@mark1russell7/conventions@0.24.1': {}
 
   '@mark1russell7/cue@2.0.0': {}
 
