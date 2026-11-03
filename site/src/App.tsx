@@ -1,6 +1,7 @@
 // The page: a React 19 app that uses splay-react. The demo shows the two phases live, in three panels.
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode, type RefObject } from "react";
+import { copyToClipboard } from "@mark1russell7/site-pages/chrome";
 import type { ComponentOutput } from "@mark1russell7/splay-react";
 import { hydrateSite } from "./hydration";
 import {
@@ -87,10 +88,7 @@ function CopyButton({ text, label = "Copy" }: { text: string; label?: string }):
       type="button"
       className="copy"
       onClick={() => {
-        navigator.clipboard.writeText(text).then(
-          () => setState("Copied"),
-          () => setState("Copy failed"),
-        );
+        void copyToClipboard(text).then((ok) => setState(ok ? "Copied" : "Copy failed"));
         window.setTimeout(() => setState(label), 1600);
       }}
     >
