@@ -539,8 +539,13 @@ button {
 }
 .user-card {
   display: grid;
-  grid-template-columns: 36px minmax(0, 1fr);
-  gap: 4px 10px;
+  grid-template-areas:
+    "avatar name"
+    "email email"
+    "role role";
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 6px 10px;
+  align-items: center;
   padding: 10px;
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -548,24 +553,35 @@ button {
 }
 .avatar {
   display: grid;
-  grid-row: span 2;
+  grid-area: avatar;
   place-items: center;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--p3), var(--p2));
-  color: #fff;
-  font-size: 0.8rem;
+  color: var(--on-accent);
+  font-size: 0.76rem;
   font-weight: 700;
 }
 .user-card[data-active="false"] .avatar {
   background: var(--muted);
 }
 .uc-text {
-  display: grid;
+  display: contents;
+}
+.uc-name {
+  grid-area: name;
+  min-width: 0;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.uc-email {
+  grid-area: email;
   min-width: 0;
 }
-.uc-name,
+.user-card .role {
+  grid-area: role;
+}
 .uc-email,
 .ur-name,
 .ur-email {
@@ -577,6 +593,15 @@ button {
 .ur-email {
   color: var(--muted);
   font-size: 0.8rem;
+}
+@container (max-width: 150px) {
+  .user-card {
+    grid-template-areas: "avatar" "name" "email" "role";
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .uc-email {
+    font-size: 0.74rem;
+  }
 }
 .role {
   justify-self: start;
