@@ -10,3 +10,6 @@ package-lock.json.bak
 *.tsbuildinfo
 cue.mod/pkg/
 dist/
+
+# The build of the site. The Pages workflow builds it.
+site/dist/

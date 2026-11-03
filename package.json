@@ -6,7 +6,8 @@
   "main": "./src/index.ts",
   "scripts": {
     "build": "tsc -b",
-    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json && pnpm --filter @splay-react/site run typecheck",
+    "test": "pnpm --filter @splay-react/site run test",
     "clean": "rm -rf dist .tsbuildinfo",
     "check:conventions": "conventions check",
     "check:api": "api-report check"
