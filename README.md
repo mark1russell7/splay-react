@@ -785,7 +785,7 @@ graph TD
     A[splay core] --> B[splay-react]
     C[client] --> D[client-splay]
     D --> B
-    B --> E[MiniMongo UI]
+    B --> E[Application UI]
     D --> E
 
     style A fill:#4CAF50,color:#fff
@@ -799,7 +799,7 @@ graph TD
 - **splay-react** - React adapter (this package)
 - **client** - Universal RPC client
 - **client-splay** - Remote rendering procedures
-- **MiniMongo** - Application using splay for data visualization
+- **Application** - A private application that uses splay for data visualization
 
 ## Examples
 
