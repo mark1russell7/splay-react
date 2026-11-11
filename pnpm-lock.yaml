@@ -168,7 +168,7 @@ importers:
     dependencies:
       '@mark1russell7/splay':
         specifier: ^0.2.0
-        version: 0.2.1
+        version: 0.2.2
       react:
         specifier: '>=18'
         version: 19.3.1
@@ -452,8 +452,8 @@ packages:
     engines: {node: '>=22'}
     hasBin: true
 
-  '@mark1russell7/splay@0.2.1':
-    resolution: {integrity: sha512-fL2beXodoe8w0zhQ2CGBKr5sI5hoF28aDxq8OMYyFWsVLVnoGzhMVtUhZ0TDDCx8uLDoSk4Sw2VQKw80mB2O8A==}
+  '@mark1russell7/splay@0.2.2':
+    resolution: {integrity: sha512-hraH78EAk4354LZY08EbUls6vpj+BC4bxVVr0rkFf97fW/yNqidmNLaH18qUIkPZ8N/YwtpqS4it1NCQodTPzA==}
     engines: {node: '>=22'}
 
   '@oxc-project/types@0.156.0':
@@ -1275,7 +1275,7 @@ snapshots:
     dependencies:
       '@mark1russell7/rigor-statistics': 0.1.9
 
-  '@mark1russell7/splay@0.2.1': {}
+  '@mark1russell7/splay@0.2.2': {}
 
   '@oxc-project/types@0.156.0': {}
 
