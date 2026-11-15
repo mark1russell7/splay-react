@@ -14,15 +14,14 @@ import {
   type Viewers,
   type WireCopy,
 } from "./model";
+import { Brand, INSTALL, REPO, SiteLinks, Steps } from "./Frame";
 import { OutputTree } from "./OutputTree";
 import { PRESETS } from "./presets";
 import { view as sampleView } from "./sample";
 import sampleSource from "./sample.tsx?raw";
 import { useTheme } from "./theme";
 
-const REPO = "https://github.com/mark1russell7/splay-react";
 const NPM = "https://www.npmjs.com/package/@mark1russell7/splay-react";
-const INSTALL = "pnpm add @mark1russell7/splay-react react react-dom";
 const HEIGHT = 400;
 
 interface Choice<V extends string> {
@@ -286,39 +285,6 @@ function Demo(): ReactNode {
   );
 }
 
-const STEPS: readonly { title: string; body: ReactNode }[] = [
-  {
-    title: "Dispatch",
-    body: (
-      <>
-        splay finds the type of each value: a primitive, an array, an object, or a custom type from <code>TYPE_SYMBOL</code>.
-      </>
-    ),
-  },
-  {
-    title: "Component phase",
-    body: (
-      <>
-        The registry gives a component for the type. The component gives a <code>ComponentOutput</code>: a type, props and children. It
-        uses <code>ctx.render</code> for each child.
-      </>
-    ),
-  },
-  {
-    title: "The wire",
-    body: <>The output is plain JSON. A server, a worker or a procedure can make it, and the browser gets it as text.</>,
-  },
-  {
-    title: "Hydration phase",
-    body: (
-      <>
-        <code>createHydrate</code> changes each node to a React element. <code>extendHydrationMap</code> adds your types. The{" "}
-        <code>Viewer</code> component does both phases in one step.
-      </>
-    ),
-  },
-];
-
 export function App(): ReactNode {
   const [theme, nextTheme] = useTheme();
   return (
@@ -327,51 +293,18 @@ export function App(): ReactNode {
         Skip to the demo
       </a>
       <header className="top">
-        <div className="brand">
-          <h1 className="wordmark">
-            <span className="mark" aria-hidden="true">
-              <i />
-              <i />
-              <i />
-            </span>
-            splay-react
-          </h1>
-          <p className="lead">
-            Render any data to plain JSON, then hydrate the JSON to React elements. Change the data or a viewer, and the two phases change
-            live.
-          </p>
-        </div>
-        <nav className="links" aria-label="Site">
-          <a href="#how">How it works</a>
-          <a href="#install">Install</a>
-          <a href="releases/">Releases</a>
-          <a href="status/">Status</a>
-          <a href={REPO}>GitHub</a>
+        <Brand />
+        <SiteLinks>
           <button type="button" className="theme" id="theme" onClick={nextTheme} aria-label={`Color theme: ${theme}. Select to change.`}>
             Theme: {theme}
           </button>
-        </nav>
+        </SiteLinks>
       </header>
 
       <main>
         <Demo />
 
-        <section id="how" className="section" aria-labelledby="how-title">
-          <h2 id="how-title">How it works</h2>
-          <ol className="steps">
-            {STEPS.map((step, index) => (
-              <li key={step.title} className="step">
-                <span className="num" aria-hidden="true">
-                  {index + 1}
-                </span>
-                <div>
-                  <h3>{step.title}</h3>
-                  <p>{step.body}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
+        <Steps />
 
         <section id="install" className="section" aria-labelledby="install-title">
           <h2 id="install-title">Install</h2>
